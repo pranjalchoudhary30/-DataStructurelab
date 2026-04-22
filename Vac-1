@@ -1,0 +1,169 @@
+#include <stdio.h>
+
+2
+
+#include <stdlib.h>
+
+3
+
+4
+
+struct Node {
+
+5
+
+int data;
+
+6
+
+7
+
+8
+
+struct Node* left;
+
+struct Node right;
+
+};
+
+9
+
+10
+
+11
+
+struct Node createNode(int data) {
+
+struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+
+newNode->data data;
+
+12
+
+13
+
+14
+
+15
+
+16
+
+newNode->left = NULL;
+
+newNode->right = NULL;
+
+return newNode;
+
+17
+
+18
+
+struct Node insert(struct Node root, int data) {
+
+NULL) if (root
+
+20
+
+19
+
+return createNode(data);
+
+21
+
+22
+
+if (data root->data)
+
+23
+
+24
+
+root->left insert(root->left, data);
+
+else
+
+25
+
+26
+
+root->right insert(root->right, data);
+
+27
+
+return root;
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+34
+
+35
+
+void printRange (struct Node* root, int low, int high) {
+
+if (root == NULL)
+
+return;
+
+printRange (root->left, low, high);
+
+36
+
+if (root->data >= low && root->data <= high)
+
+37
+
+38
+
+39
+
+printf("%d", root->data);
+
+printRange(root->right, low, high);
+
+40
+
+41
+
+42
+
+43
+
+int main(){
+
+struct Node root = NULL;
+
+44
+
+int arr[] = {17, 4, 18, 2, 9};
+
+45
+
+46
+
+47
+
+for (int i = 0; i < 5; i++)
+
+root insert(root, arr[i]);
+
+48
+
+49
+
+printRange(root, 4, 24);
+
+50
+
+return 0;
+
+51
