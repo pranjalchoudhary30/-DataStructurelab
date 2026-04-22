@@ -1,0 +1,177 @@
+#include <stdio.h>
+
+2
+
+#include <string.h>
+
+3
+
+4
+
+#define MAX 1000
+
+5
+
+6
+
+char stack [MAX];
+
+7
+
+int top-1;
+
+8
+
+9
+
+void push(char c) {
+
+10
+
+stack[++top] = c;
+
+11
+
+}
+
+12
+
+13
+
+char pop() {
+
+14
+
+if (top == -1)
+
+15
+
+return '\0';
+
+16
+
+return stack[top--];
+
+17
+
+}
+
+18
+
+19
+
+int isEmpty() {
+
+20
+
+return top == -1;
+
+21
+
+}
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+int isBalanced(char s[]) {
+
+for (int i = 0; i < strlen(s); i++) {
+
+char ch = s[i];
+
+if (ch == '(' || ch=='{' || ch=='['){
+
+push(ch);
+
+} else {
+
+if (isEmpty())
+
+return 0;
+
+chart pop();
+
+34
+
+35
+
+if ((ch == ')' && t != '(') || (ch == '}' && t != '{') || (ch == ']' && t != '['))
+
+36
+
+37
+
+38
+
+return 0;
+
+39
+
+40
+
+}
+
+41
+
+return isEmpty();
+
+42
+
+}
+
+43
+
+44
+
+int main()
+
+45
+
+char s[MAX];
+
+46
+
+scanf("%s", s);
+
+47
+
+48
+
+if (isBalanced(s))
+
+49
+
+printf("Balanced");
+
+50
+
+else
+
+51
+
+printf("Not Balanced");
+
+54
+
+return 0;
